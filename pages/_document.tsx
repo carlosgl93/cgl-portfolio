@@ -12,6 +12,10 @@ export default function Document() {
           rel='stylesheet'
           href='https://fonts.googleapis.com/icon?family=Material+Icons'
         />
+        <script
+          type='module'
+          src='https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js'
+        ></script>
       </Head>
       <body>
         <Main />

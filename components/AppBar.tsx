@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,8 +10,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import InboxIcon from "@mui/icons-material/Inbox";
-import MailIcon from "@mui/icons-material/Mail";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import ConstructionIcon from "@mui/icons-material/Construction";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
+import Person4Icon from "@mui/icons-material/Person4";
 
 import {
   Divider,
@@ -20,9 +23,38 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  SvgIconTypeMap,
 } from "@mui/material";
+import LanguageSelector from "./LanguageSelector";
 
-const pages = ["Products", "Pricing", "Blog"];
+type Route = {
+  label: string;
+  icon?: React.ReactElement;
+  link: string;
+};
+
+const pages: Route[] = [
+  {
+    label: "About Me",
+    icon: <Person4Icon />,
+    link: "/",
+  },
+  {
+    label: "Projects",
+    icon: <BusinessCenterIcon />,
+    link: "/projects",
+  },
+  {
+    label: "Playground",
+    icon: <ConstructionIcon />,
+    link: "/under-construction",
+  },
+  {
+    label: "Contact",
+    icon: <ContactMailIcon />,
+    link: "/contact",
+  },
+];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -67,7 +99,7 @@ function ResponsiveAppBar() {
             }}
           >
             <Box>
-              <Typography variant='h5'>MEET ME</Typography>
+              <LanguageSelector />
             </Box>
             <IconButton
               size='large'
@@ -88,29 +120,14 @@ function ResponsiveAppBar() {
               }}
             >
               <List>
-                {["Inbox", "Starred", "Send email", "Drafts"].map(
-                  (text, index) => (
-                    <ListItem key={text} disablePadding>
+                {pages.map((route, index) => (
+                  <ListItem key={route.link} disablePadding>
+                    <Link href={route.link}>
                       <ListItemButton>
-                        <ListItemIcon>
-                          {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
+                        <ListItemIcon>{route.icon}</ListItemIcon>
+                        <ListItemText primary={route.label} />
                       </ListItemButton>
-                    </ListItem>
-                  )
-                )}
-              </List>
-              <Divider />
-              <List>
-                {["All mail", "Trash", "Spam"].map((text, index) => (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                      </ListItemIcon>
-                      <ListItemText primary={text} />
-                    </ListItemButton>
+                    </Link>
                   </ListItem>
                 ))}
               </List>
@@ -119,49 +136,16 @@ function ResponsiveAppBar() {
 
           {/* desktop nav */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {pages.map((route) => (
               <Button
-                key={page}
+                key={route.link}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {route.label}
               </Button>
             ))}
           </Box>
-
-          {/* <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title='Open settings'>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar
-                  alt='Carlos Gumucio'
-                  src='/images/foto-perfil-cgl.jfif'
-                />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id='menu-appbar'
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign='center'>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box> */}
         </Toolbar>
       </Container>
     </AppBar>
