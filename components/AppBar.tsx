@@ -80,7 +80,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position='static'>
+    <AppBar position='static' id="appbar">
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Avatar
@@ -98,9 +98,6 @@ function ResponsiveAppBar() {
               alignItems: "center",
             }}
           >
-            <Box>
-              <LanguageSelector />
-            </Box>
             <IconButton
               size='large'
               aria-label='account of current user'
@@ -111,6 +108,7 @@ function ResponsiveAppBar() {
             >
               <MenuIcon />
             </IconButton>
+            <LanguageSelector />
             <Drawer
               anchor='bottom'
               open={Boolean(anchorElNav)}

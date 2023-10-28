@@ -11,7 +11,7 @@ interface Props {
 }
 
 const STATE_INITIAL_STATE: State = {
-  language: "en",
+  language: "English",
 };
 
 const StateProvider: FC<PropsWithChildren<Props>> = ({ children }) => {

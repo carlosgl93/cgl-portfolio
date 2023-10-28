@@ -14,7 +14,7 @@ const english: Language = {
 };
 
 const translate = (key: keyof Language, language: string) => {
-  return language == "en" ? english[key] : spanish[key];
+  return language == "English" ? english[key] : spanish[key];
 };
 
 export default translate;
