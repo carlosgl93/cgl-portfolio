@@ -14,7 +14,7 @@ import translate from "../utils/translation";
 
 
 interface Props {
-  show: Boolean  
+  show?: Boolean;
 }
 
 const LanguageSelector: FC<Props> = ({show}) => {
@@ -26,20 +26,10 @@ const LanguageSelector: FC<Props> = ({show}) => {
   };
 
   return (
-    <Select
-      sx={{
-          display: show ? 'none' : 'flex'
-        }}
-          labelId='language-selector-label'
-          id='language-selector'
-          value={language}
-          label={language}
-          renderValue={() => language}
-          onChange={handleChange}
-        >
-          <MenuItem value={"English"}>English</MenuItem>
-          <MenuItem value={"Español"}>Español</MenuItem>
-        </Select>
+    <Select labelId='language-selector-label' id='language-selector' value={language} onChange={handleChange}>
+      <MenuItem value={'English'}>English</MenuItem>
+      <MenuItem value={'Español'}>Español</MenuItem>
+    </Select>
   );
 };
 export default LanguageSelector;
