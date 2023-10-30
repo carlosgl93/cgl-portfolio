@@ -1,3 +1,22 @@
 {
-  "extends": ["./node_modules/standard/eslintrc.json", "next/core-web-vitals"]
+  // "extends": ["./node_modules/standard/eslintrc.json", "next/core-web-vitals"],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "rules": {
+    "semi": "off",
+    "quotes": "off",
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "indent": ["error", 2],
+    "comma-dangle": ["error", "always-multiline"]
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  }
 }
