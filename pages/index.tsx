@@ -20,30 +20,22 @@ const Home: FC<Props> = ({}) => {
       <Grid
         item
         sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          mt: '5vh',
-          mx: '3vw',
-          height: '400px',
-          width: '337px',
+          display: 'grid',
+          alignItems: 'center',
+          alignContent: 'center',
+          borderRadius: '22px',
+          overflow: 'hidden',
+          width: '400px',
+          height: '337px',
+          mx: '1rem',
         }}
       >
-        {/* Image left */}
-
-        <Image
-          alt='Profile Picture'
-          src='/images/foto-perfil-cgl.jfif'
-          width={400}
-          height={337}
-          style={{
-            borderRadius: '10px',
-          }}
-        />
+        <Image priority alt='My Profile Picture' src='/images/foto-perfil-cgl.jfif' height={337} width={400} />
       </Grid>
       <Grid
         item
         sx={{
-          px: '5vw',
+          mx: '1rem',
         }}
       >
         {/* Description right */}

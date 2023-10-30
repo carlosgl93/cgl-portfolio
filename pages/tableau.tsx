@@ -1,13 +1,10 @@
 // React & dependencies
 import { FC } from "react";
 
-// Material Components
-import { Typography } from "@mui/material";
-import TableauViz from "../components/TableauViz";
+import { Typography } from '@mui/material';
+import TableauViz from '../components/TableauViz';
 
-// My components
 
-// Queries & Mutations
 
 // Typescript
 interface Props {}

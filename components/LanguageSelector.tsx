@@ -19,7 +19,6 @@ interface Props {
 
 const LanguageSelector: FC<Props> = ({show}) => {
   const { changeLanguage, language } = useContext(StateContext);
-  console.log({ language });
 
   const handleChange = (event: SelectChangeEvent) => {
     changeLanguage(event.target.value as string);
