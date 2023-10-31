@@ -35,7 +35,7 @@ export const closedParentBox = {
   height: { xs: '42px' },
   transition: 'padding 0.8s, width 1.6s, height 0.8s, gridTemplateRows 0.8s, grid-template-rows 0.8s',
   transitionTimingFunction: 'ease',
-  padding: '0.5rem 0.33rem',
+  padding: { xs: '0.5rem 0.33rem' },
 };
 
 export const openedName = {
@@ -109,7 +109,7 @@ export const openedLanguage = {
 export const closedLanguage = {
   position: 'absolute',
   top: '1rem',
-  right: { xs: '5%', md: '5%' },
+  right: { xs: '5%', md: '2%' },
   opacity: 1,
   gridArea: 'language',
   gridRow: '1/1',
