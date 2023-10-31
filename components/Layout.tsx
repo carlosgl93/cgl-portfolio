@@ -1,6 +1,6 @@
 // React & dependencies
-import { Box } from "@mui/material";
-import { FC } from "react";
+import { Box } from '@mui/material';
+import { FC } from 'react';
 import MobileAppbar from './MobileAppBar';
 
 interface Props {
@@ -9,7 +9,6 @@ interface Props {
 const Layout: FC<Props> = ({ children }) => {
   return (
     <Box>
-      {/* <ResponsiveAppBar /> */}
       <MobileAppbar />
       {children}
     </Box>
